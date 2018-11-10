@@ -1,7 +1,7 @@
 Projekty z użyciem serwisu AMAZON REKOGNITION
 ===
-* [Rozpoznawanie obrazu](https://docs.aws.amazon.com/rekognition/latest/dg/images-s3.html)
-* [Rozpoznawanie twarzy](https://docs.aws.amazon.com/rekognition/latest/dg/images-s3.html)
+* [Rozpoznawanie obrazu](detecting_objects/README.md)
+* [Rozpoznawanie twarzy](faces_comparing/README.md)
 
 ### Mój sprzęt
 * Raspberry Pi 3 model B WiFi Bluetooth 1GB RAM 1,2GHz
