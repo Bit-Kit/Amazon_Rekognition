@@ -1,0 +1,4 @@
+"bucket"="bucketrpi1"                   #Nazwa bucket w Amazon S3
+"sourceFile_1"="person_1.jpg"   #Zdjęcie 1
+"sourceFile_2"="person_2.jpg"	  #Zdjęcie 2
+"sourceFile_3"="person_3.jpg" 	#Zdjęcie 3
