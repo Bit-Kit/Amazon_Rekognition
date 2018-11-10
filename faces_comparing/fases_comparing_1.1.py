@@ -31,7 +31,7 @@ print('|"Comparing Faces in Images"                                |')
 print(' -----------------------------------------------------------')
 with canvas(device) as draw:
     draw.rectangle((0, 0, device.width-1, device.height-1), outline=255, fill=1)
-    draw.bitmap((0, 0), Image.open('closed.png'), fill=0)
+    draw.bitmap((0, 0), Image.open('files/closed.png'), fill=0)
 
 def response_person_1():
     try:
@@ -106,7 +106,7 @@ def oled(name):
     with canvas(device) as draw:
         draw.rectangle((0, 0, device.width-1, device.height-1), outline=255, fill=1)
         draw.text((0, 0), name, fill="white")
-        draw.bitmap((0, 0), Image.open('open.png'), fill=0)
+        draw.bitmap((0, 0), Image.open('files/open.png'), fill=0)
 
 if __name__ == "__main__":
 
