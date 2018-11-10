@@ -1,4 +1,4 @@
-Rozpoznawanie twarzy
+Rozpoznawanie Obrazów
 ===
 *
 *
