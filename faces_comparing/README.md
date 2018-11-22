@@ -3,7 +3,7 @@ Rozpoznawanie twarzy
 ### Spis treści
 1. [Wprowadzenie](#wprowadzenie)
 2. [Kolejność i schemat działania](#schemat)
-3. [---](#uslugi_modelu_intserv)
+3. [S3](#s3)
 4. [---](#protokol_rsvp)
 5. [Źródła](#zrodla)
 ---
@@ -17,10 +17,11 @@ W moim projekcie będą wykorzystywane 3 zdjęcia docelowe i 1 zdjęcie źródł
 
 Ten schemat pokazuje jak się odbywa porównanie twarzy:
 ![Podstawowy schemat działania](files/Schemat_dzialania.jpg "Rys.1 Pydstawowy schemat działania")
+
 Przede wszystkim jest uruchomiany skrypt Python-a:
 
     python3 fases_comparing_x.x.py
-Odrazu zaświeca się wyświetlacz z zamkniętą kłódką:
+Od razu zaświeca się wyświetlacz z zamkniętą kłódką:
 
 <img src="files/closed_view.jpg" width="200">
 
@@ -30,11 +31,11 @@ Uruchamia się rozpoznawanie pierwszej osoby:
     if response_person_1()== True:
 
 Tutaj skrypt generuje żądanie w postacie JSON, gdzie umieszcza obrazek *camera.jpg* i ścieżkę do obrazka docelowego w serwisie S3, a następnie wysyła do serwera AWS. Serwer po krótkim czasie dostarcza odpowiedź.
-Parametr *"confidence"* jest ustalony na 80% sukcesu rozpoznawania. Mianowicie, jeśli rozpoznawanie jest powyżej 80%, zaobserwujemy otwartą kłódkę na wyświetlaczu:
+Parametr *"confidence"* jest ustalony na 80% sukcesu rozpoznawania. Mianowicie, jeśli rozpoznawanie jest powyżej 80%, metoda  *response_person* zwróci *True* i zaobserwujemy otwartą kłódkę na wyświetlaczu:
 
 <img src="files/open_view.jpg" width="200">
 
-W przypadku nie rozpoznawanie 1 osoby, następuje próba rozpoznawanie drugiej:
+W przypadku nie rozpoznawanie 1 osoby, następuje próba rozpoznawanie drugiej, a następnie trzeciej.
 
 By dostosować ten projekt do swoich potrzeb/rozwiązań, należy w konkretnym miejscu w skrypcie umieścić swój kawałek kodu: 
 
@@ -54,6 +55,34 @@ By dostosować ten projekt do swoich potrzeb/rozwiązań, należy w konkretnym m
         else:
             print("Photo is not recognise.")
            
+# Amazon simple storage service(S3)<a name="s3"></a>
+Jest to "magazyn obiektów" który pozwala na chronienie danych w serwisie chmurowym. W tym projekcie S3 służy do chronienia w nim zdjęć docelowych. By to działało, trzeba umieścic 3 zdjęcia w Bucket S3 i w pliku ***files/data.txt*** wpisać ścieżki do nich:
+
+    "bucket"="my_bucketrpi"            #Nazwa bucket w Amazon S3
+    "sourceFile_1"="my_person_1.jpg"   #Zdjęcie 1
+    "sourceFile_2"="my_person_2.jpg"   #Zdjęcie 2
+    "sourceFile_3"="my_person_3.jpg"   #Zdjęcie 3
+Te ścieżki można podać bezpośrednio w sktypcie nie używając dodatkowego pliku ***data.txt***. Należy rozkomentować kolejne pozycje:
+
+    bucket =''
+    sourceFile_1 =''
+    sourceFile_2 =''
+    sourceFile_3 =''
+
+i zakomentować całą pętle for:
+
+    '''
+    for line in file_data:
+        a = line.split('\"')
+        if a[1]=="bucket":
+            bucket = a[3]
+        elif a[1]=="sourceFile_1":
+            sourceFile_1 = a[3]
+        elif a[1]=="sourceFile_2":
+            sourceFile_2 = a[3]
+        elif a[1]=="sourceFile_3":
+            sourceFile_3 = a[3]
+    '''  
 
 
 
