@@ -7,13 +7,16 @@ Rozpoznawanie twarzy
 4. [---](#protokol_rsvp)
 5. [Źródła](#zrodla)
 ---
-### Wprowadzenie:<a name="wprowadzenie"></a>
+
+<a name="wprowadzenie"></a>
+### Wprowadzenie:
 
 [Face comparison](https://aws.amazon.com/rekognition/) wykonuje porównywanie twarzy "źródłowej" z każdą twarzą docelową. 
 Wszystkie obliczenia są przeprowadzone na serwerach AWS, więc od klienta wymaga się jedynie wysłanie wiadomości z obrazkami.
 W moim projekcie będą wykorzystywane 3 zdjęcia docelowe i 1 zdjęcie źródłowe. Zdjęcie źródłowe będzie zrobione kamerką Raspberry Pi. Wynik będzie w postaci wyświetlanej kłódki na małym wyświetlaczu.
 
-### Kolejność i schemat działania:<a name="schemat"></a>
+<a name="schemat"></a>
+### Kolejność i schemat działania:
 
 Ten schemat pokazuje jak się odbywa porównanie twarzy:
 ![Podstawowy schemat działania](files/Schemat_dzialania.jpg "Rys.1 Pydstawowy schemat działania")
@@ -55,7 +58,8 @@ By dostosować ten projekt do swoich potrzeb/rozwiązań, należy w konkretnym m
         else:
             print("Photo is not recognise.")
            
-# Amazon simple storage service(S3)<a name="s3"></a>
+<a name="s3"></a>           
+# Amazon simple storage service(S3)
 Jest to "magazyn obiektów" który pozwala na chronienie danych w serwisie chmurowym. W tym projekcie S3 służy do chronienia w nim zdjęć docelowych. By to działało, trzeba umieścic 3 zdjęcia w Bucket S3 i w pliku ***files/data.txt*** wpisać ścieżki do nich:
 
     "bucket"="my_bucketrpi"            #Nazwa bucket w Amazon S3
