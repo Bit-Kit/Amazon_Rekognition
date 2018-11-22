@@ -1,9 +1,14 @@
-Projekty z użyciem serwisu AMAZON REKOGNITION
+Projekty z użyciem serwisu Amazon Rekognition
 ===
+
+Ten repozytorium zawiera rozwiązania widzenia komputerowego opartych o serwisy Amazon.
+Są następne rozwiązania:
 * [Rozpoznawanie obrazu](detecting_objects/README.md)
 * [Rozpoznawanie twarzy](faces_comparing/README.md)
+
 ---
 * [Jak zacząć...](how_to_start.md)
+
 ### Mój sprzęt
 * Raspberry Pi 3 model B WiFi Bluetooth 1GB RAM 1,2GHz
 * Kamera HD C OV5647 5Mpx
