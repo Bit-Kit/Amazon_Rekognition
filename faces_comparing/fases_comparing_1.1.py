@@ -11,6 +11,7 @@ from PIL import ImageFont, ImageDraw, Image
 serial = i2c(port=1, address=0x3C)
 device = ssd1306(serial, rotate=0)
 file_data = open("files/data.txt", "r")
+
 for line in file_data:
     a = line.split('\"')
     if a[1]=="bucket":
@@ -21,7 +22,11 @@ for line in file_data:
         sourceFile_2 = a[3]
     elif a[1]=="sourceFile_3":
         sourceFile_3 = a[3]
-
+        
+#bucket =''
+#sourceFile_1 =''
+#sourceFile_2 =''
+#sourceFile_3 =''
 
 print(' -----------------------------------------------------------')
 print('|Ten program porównuje 3 pliki z s3                     >   |')
