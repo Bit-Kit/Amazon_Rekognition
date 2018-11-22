@@ -33,10 +33,11 @@ open.png                 | Obraz otwartej kłódki
 Ten schemat pokazuje jak się odbywa porównanie twarzy:
 ![Podstawowy schemat działania](files/Schemat_dzialania.jpg "Rys.1 Pydstawowy schemat działania")
 
-Przede wszystkim jest uruchomiany skrypt Python-a:
+Początkiem jest uruchomienie skryptu Python:
 
     python3 fases_comparing_x.x.py
-Od razu zaświeca się wyświetlacz z zamkniętą kłódką:
+    
+Znakiem poprawnego działania jest świecąca się zamknięta kłódka:
 
 <img src="files/closed_view.jpg" width="200">
 
