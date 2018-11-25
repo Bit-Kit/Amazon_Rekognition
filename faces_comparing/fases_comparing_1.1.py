@@ -18,7 +18,7 @@ sourceFile_3 ='target3.jpg'
 print(' -----------------------------------------------------------')
 print('|Ten program porównuje 3 pliki z s3                     >   |')
 print('|z lokalnym plikiem "camera.jpg", robionym przez camere >   |')
-print('|oraz wyswietla kludke przez oled >                         |')
+print('|oraz wyswietla kludke na wyswietlaczu >                    |')
 print('|"Comparing Faces in Images"                                |')
 print(' -----------------------------------------------------------')
 with canvas(device) as draw:
