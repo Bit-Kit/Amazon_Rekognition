@@ -1,3 +1,4 @@
+#Źródło:https://docs.aws.amazon.com/rekognition/latest/dg/search-face-with-image-procedure.html
 import boto3
 import picamera
 import time
@@ -14,10 +15,10 @@ bucket='my_bucketrpi'
 collectionId='my_collection'
 
 print(' -----------------------------------------------------------')
-print('|Ten program porównuje 2 pliki z s3                     >   |')
+print('|Ten program porównuje kolekcje zdjęć z >                   |')
 print('|z lokalnym plikiem "camera.jpg", robionym przez camere >   |')
 print('|oraz wyswietla kludke przez oled >                         |')
-print('|"Comparing Faces in Images"                                |')
+print('|"Searching for a Face Using an Image"                      |')
 print(' -----------------------------------------------------------')
 faceid=''
 with canvas(device) as draw:
