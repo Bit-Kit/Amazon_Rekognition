@@ -14,14 +14,19 @@ Rozpoznawanie twarzy
 
 [Face comparison](https://aws.amazon.com/rekognition/) wykonuje porównywanie twarzy "źródłowej" z każdą twarzą docelową. 
 Wszystkie obliczenia są przeprowadzone na serwerach AWS, więc od klienta wymaga się jedynie wysłanie wiadomości z obrazkami.
-W moim projekcie będą wykorzystywane 3 zdjęcia docelowe i 1 zdjęcie źródłowe. Zdjęcie źródłowe będzie zrobione kamerką Raspberry Pi. Wynik będzie w postaci wyświetlanej kłódki na małym wyświetlaczu.
+W moim projekcie są dwie możliwości rozpoznawania twarzy:
+* rozpoznawanie z użyciem 3 zdjęć docelowych(wysyłane są 3 źądania do serwera) plik **fases_comparing_x.x.py**
+* rozpoznawanie z użyciem kolekcji zdjęć(jest tworzona lista z meta danymi zdjęć docelowych) plik **fases_comparing_in_collection_x.x.py**
+
+Zdjęcie źródłowe będzie zrobione kamerką Raspberry Pi. Wynik będzie w postaci wyświetlanej kłódki na małym wyświetlaczu.
 
 <a name="pliki"></a>
 ### Niezbędne pliki
 
 Nazwa pliku              | Opis
 -------------------------|----------------------
-fases_comparing_x.x.py   | Główny skrypt projektu
+fases_comparing_x.x.py   | Rozpoznawanie 3 zdjęć
+fases_comparing_in_collection_x.x.py   | Rozpoznawanie z użyciem kolekcji
 fases_comparing_sample.py| Uproszczony podstawowy skrypt do prezentacji działania 
 data.txt                 | Zawiera ścieżki do zasobów S3
 closed.png               | Obraz zamkniętej kłódki
@@ -122,4 +127,5 @@ ssd1306                  | Biblioteka sterownika Wyświetlacza
 * [Comparing Faces in Images AWS](https://docs.aws.amazon.com/rekognition/latest/dg/faces-comparefaces.html)
 * [Analyzing Images Stored in an Amazon S3 Bucket](https://docs.aws.amazon.com/rekognition/latest/dg/images-s3.html)
 * [Using Boto 3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
-
+* [Ograniczenia w Amazon Rekognition](https://docs.aws.amazon.com/rekognition/latest/dg/limits.html)
+* [Koszty usług Amazon Rekognition](https://aws.amazon.com/rekognition/pricing/)
