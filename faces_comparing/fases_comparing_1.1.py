@@ -9,24 +9,11 @@ from luma.oled.device import ssd1306, ssd1325, ssd1331, sh1106
 from PIL import ImageFont, ImageDraw, Image
 
 serial = i2c(port=1, address=0x3C)
-device = ssd1306(serial, rotate=0)
-file_data = open("files/data.txt", "r")
-
-for line in file_data:
-    a = line.split('\"')
-    if a[1]=="bucket":
-        bucket = a[3]
-    elif a[1]=="sourceFile_1":
-        sourceFile_1 = a[3]
-    elif a[1]=="sourceFile_2":
-        sourceFile_2 = a[3]
-    elif a[1]=="sourceFile_3":
-        sourceFile_3 = a[3]
-        
-#bucket =''
-#sourceFile_1 =''
-#sourceFile_2 =''
-#sourceFile_3 =''
+device = ssd1306(serial, rotate=0)    
+bucket ='my_bucket'
+sourceFile_1 ='target1.jpg'
+sourceFile_2 ='target2.jpg'
+sourceFile_3 ='target3.jpg'
 
 print(' -----------------------------------------------------------')
 print('|Ten program porównuje 3 pliki z s3                     >   |')
