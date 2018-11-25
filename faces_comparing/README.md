@@ -28,7 +28,6 @@ Nazwa pliku              | Opis
 fases_comparing_x.x.py   | Rozpoznawanie 3 zdjęć
 fases_comparing_in_collection_x.x.py   | Rozpoznawanie z użyciem kolekcji
 fases_comparing_sample.py| Uproszczony podstawowy skrypt do prezentacji działania 
-data.txt                 | Zawiera ścieżki do zasobów S3
 closed.png               | Obraz zamkniętej kłódki
 open.png                 | Obraz otwartej kłódki
 
@@ -78,34 +77,13 @@ By dostosować ten projekt do swoich potrzeb/rozwiązań, należy w konkretnym m
            
 <a name="s3"></a>           
 # Amazon simple storage service(S3)
-Jest to "magazyn obiektów" który pozwala na chronienie danych w serwisie chmurowym. W tym projekcie S3 służy do chronienia w nim zdjęć docelowych. By to działało, trzeba umieścic 3 zdjęcia w Bucket S3 i w pliku ***files/data.txt*** wpisać ścieżki do nich:
+Jest to "magazyn obiektów" który pozwala na chronienie danych w serwisie chmurowym. W tym projekcie S3 służy do chronienia w nim zdjęć docelowych. By to działało, trzeba umieścic 3 zdjęcia w Bucket S3 i w skrypcie zamienić wartości zmienych **bucket, sourceFile_2, sourceFile_2, sourceFile_3**:
 
-    "bucket"="my_bucketrpi"            #Nazwa bucket w Amazon S3
-    "sourceFile_1"="my_person_1.jpg"   #Zdjęcie 1
-    "sourceFile_2"="my_person_2.jpg"   #Zdjęcie 2
-    "sourceFile_3"="my_person_3.jpg"   #Zdjęcie 3
-Te ścieżki można podać bezpośrednio w sktypcie nie używając dodatkowego pliku ***data.txt***. Należy rozkomentować kolejne pozycje:
+    bucket =''          #Nazwa bucket w Amazon S3
+    sourceFile_1 =''    #Zdjęcie 1
+    sourceFile_2 =''    #Zdjęcie 2
+    sourceFile_3 =''    #Zdjęcie 3
 
-    bucket =''
-    sourceFile_1 =''
-    sourceFile_2 =''
-    sourceFile_3 =''
-
-i zakomentować całą pętle for:
-
-    '''
-    for line in file_data:
-        a = line.split('\"')
-        if a[1]=="bucket":
-            bucket = a[3]
-        elif a[1]=="sourceFile_1":
-            sourceFile_1 = a[3]
-        elif a[1]=="sourceFile_2":
-            sourceFile_2 = a[3]
-        elif a[1]=="sourceFile_3":
-            sourceFile_3 = a[3]
-    '''  
-    
 <a name="biblioteki"></a>
 ### Biblioteki
 
