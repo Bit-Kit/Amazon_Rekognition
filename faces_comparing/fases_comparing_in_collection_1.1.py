@@ -76,12 +76,12 @@ if __name__ == "__main__":
         camera.annotate_text = "Photo is making"
   
         if response()!= False:
-            if(faceid=="9d8f6d87-639b-42aa-a984-e9f0653b120e"):
-                print("Hello Olek")
-            elif(faceid=="ea5e45ce-4fd3-458c-87db-f44ece523cec"):
-                print("Hello Kinga")
-            elif(faceid=="5fb97e77-bfd2-4b25-bf14-f8197d3616e3"):
-                print("Hello Professor")
+            if(faceid=="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxx1"):
+                print("Hello User1")
+            elif(faceid=="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxx2"):
+                print("Hello User2")
+            elif(faceid=="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxx3"):
+                print("Hello User3")
             else:
                 print("None")
             oled()
