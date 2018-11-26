@@ -4,7 +4,7 @@ Jak zacząć...
 1. [AWS Command Line Interface](#cli)
 2. [Python3](#pliki)
 3. [Sterowniki kamery Raspberry Pi dla Python](#camera)
-4. [Sterowniki wyświetlacza](#s3)
+4. [Sterowniki wyświetlacza](#SSD1306)
 5. [Biblioteki](#biblioteki)
 6. [Źródła](#zrodla)
 ---
@@ -61,8 +61,17 @@ Ten skrypt wyświetla okienko *"Preview"* które przedstawia nagrywanie kamery w
 Uruchomiamy poleceniem:
 
     python3 plik.py
+    
+<a name="SSD1306"></a>    
+# Sterowniki wyświetlacza
+W tym projekcie jaki dodatkową opcją wyprowadzenia informacji jest wyświetlacz na kontrolerze **ssd1306** z rozdzielcząścią **128X64**. Komynikacja pomiędzy Raspberry Pi i wyświetlaczem odbywa się po przez interfejs I2C.
+Kontroler **ssd1306** obsługuje biblioteka [**Luma**](https://luma-oled.readthedocs.io/en/latest/intro.html).
+Poniżej znajduje się instrukcja instalacji bibliotek Luma:
 
-
+    sudo apt-get install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential
+    sudo -H pip install --upgrade luma.oled
+    
+Po instalacji w katalogu domowym pojawi się folder *codelectron_projects/Rpi/OLED* w którym znajdziemy napisane skrypty z przykładami uzycia tego wyświetlacza.
 
 
 
@@ -73,5 +82,5 @@ Uruchomiamy poleceniem:
 * [AWS Command Line Interface Getting Started](https://aws.amazon.com/cli/)
 * [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera)
 * [Installation picamera](https://picamera.readthedocs.io/en/release-1.13/install.html#raspbian-installation)
-
+* [Luma.OLED Drivers](https://luma-oled.readthedocs.io/en/latest/index.html)
 
