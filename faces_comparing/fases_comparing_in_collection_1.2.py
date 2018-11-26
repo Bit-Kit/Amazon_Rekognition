@@ -2,6 +2,7 @@
 import boto3
 import picamera
 import time
+import RPi.GPIO as GPIO
 
 from luma.core.interface.serial import i2c
 from luma.core.render import canvas
@@ -14,10 +15,18 @@ device = ssd1306(serial, rotate=0)
 bucket='my_bucketrpi'
 collectionId='my_collection'
 
+led=4
+button=17
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(led, GPIO.OUT)
+GPIO.setup(button, GPIO.IN)
+GPIO.output(led, GPIO.LOW)
+
 print(' -----------------------------------------------------------')
 print('|Ten program porównuje kolekcje zdjęć z >                   |')
 print('|z lokalnym plikiem "camera.jpg", robionym przez camere >   |')
 print('|oraz wyswietla kludke przez oled >                         |')
+print('|jest używany Button i timer >                              |')
 print('|"Searching for a Face Using an Image"                      |')
 print(' -----------------------------------------------------------')
 faceid=''
@@ -25,6 +34,18 @@ with canvas(device) as draw:
     draw.rectangle((0, 0, device.width-1, device.height-1), outline=255, fill=1)
     draw.bitmap((0, 0), Image.open('files/closed.png'), fill=0)
 
+def button_put():
+    camera.annotate_text = "Wait for click button"
+    while True:
+
+        if GPIO.input(button) == False:
+            GPIO.output(led, GPIO.HIGH)
+            camera.annotate_text = "Photo is making"
+            return
+        else:
+            GPIO.output(led, GPIO.LOW)
+    
+    
 def response():
     try:
         threshold = 70
@@ -73,8 +94,9 @@ if __name__ == "__main__":
         camera.rotation=180
         time.sleep(3)
         camera.capture('camera.jpg',resize=(1280, 800))#1280, 1024 ,800
-        camera.annotate_text = "Photo is making"
-  
+        button_put() 
+        print("Zdjęcie zrobione, wysyłam komunikat...")
+        start_time = time.time()
         if response()!= False:
             if(faceid=="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxx1"):
                 print("Hello User1")
@@ -84,6 +106,7 @@ if __name__ == "__main__":
                 print("Hello User3")
             else:
                 print("None")
+            print("To trwalo: ", round(time.time() - start_time,2), "seconds.")
             oled()
                 
         else:
@@ -92,15 +115,15 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("Exit pressed Ctrl+C")
         camera.close()
-        #GPIO.cleanup()
+        GPIO.cleanup()
         
     except:
         print('Error')
         camera.close()
-        #GPIO.cleanup()
+        GPIO.cleanup()
         
     finally:
         time.sleep(8)
-        #GPIO.cleanup()
+        GPIO.cleanup()
         camera.close()
         print("End of program")
