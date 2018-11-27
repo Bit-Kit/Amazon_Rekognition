@@ -1,13 +1,21 @@
 Jak zacząć...
 ===
 ### Podstawą tego projektu są:
-1. [AWS Command Line Interface](#cli)
-2. [Python3](#pliki)
-3. [Sterowniki kamery Raspberry Pi dla Python](#camera)
-4. [Sterowniki wyświetlacza](#SSD1306)
-5. [Biblioteki](#biblioteki)
-6. [Źródła](#zrodla)
+1. [Komponenty i połączenie](#komp)
+2. [AWS Command Line Interface](#cli)
+3. [Python3](#pliki)
+4. [Sterowniki kamery Raspberry Pi dla Python](#camera)
+5. [Sterowniki wyświetlacza](#SSD1306)
+6. [Biblioteki](#biblioteki)
+7. [Źródła](#zrodla)
 ---
+
+<a name="komp"></a>
+# Komponenty i połączenie
+![](scheme.jpg "Schemat")
+
+
+
 
 <a name="cli"></a>
 # AWS Command Line Interface
