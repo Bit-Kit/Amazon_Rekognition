@@ -6,8 +6,7 @@ Jak zacząć...
 3. [Python3](#pliki)
 4. [Sterowniki kamery Raspberry Pi dla Python](#camera)
 5. [Sterowniki wyświetlacza](#SSD1306)
-6. [Biblioteki](#biblioteki)
-7. [Źródła](#zrodla)
+6. [Źródła](#zrodla)
 ---
 
 <a name="komp"></a>
