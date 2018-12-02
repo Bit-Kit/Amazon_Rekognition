@@ -7,7 +7,7 @@ Jak zacząć...
     3. [Konfiguracja systemu](#sys)
 2. [Komponenty i połączenie](#komp)
 3. [AWS Command Line Interface](#cli)
-4. [Python3](#pliki)
+4. [Python3](#python)
 5. [Sterowniki kamery Raspberry Pi dla Python](#camera)
 6. [Sterowniki wyświetlacza](#SSD1306)
 7. [Źródła](#zrodla)
@@ -159,6 +159,14 @@ Można sprawdzić połączenie za pomocą funkcji wyświetlania *"ls"*
 
     pi@raspberrypi:~ $aws s3 ls
 W odpowiedzi dostaniemy nazwę utworzonego "Bucket" w serwisie S3.
+
+<a name="#python"></a>
+### Python3
+Do tego obrazy Debian Python3 jest dołączony domyślnie. Można to sprawdzić poleceniem:
+
+    pi@raspberrypi:~/.aws $ python --version  //dla Python-a drugiej wersji
+    pi@raspberrypi:~/.aws $ python2 --version  //dla Python-a trzeciej wersji
+
 
 <a name="camera"></a>
 # Sterowniki kamery Raspberry Pi
