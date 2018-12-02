@@ -66,19 +66,40 @@ Wyświetla się coś takiego:
     loop9    7:9    0  75,3M  1 loop /snap/play0ad/83
 
 Znając pojemność naszej karty, możemy ją znaleść.
-W moim przypadku jest to sdb1 która ma pojemność ok 16GB. Przed formatowaniem należy odmontować kartę poleceniem:
+W moim przypadku jest to sdb1, która ma pojemność ok 16GB. Przed formatowaniem należy od montować kartę poleceniem:
 
     sudo umount /dev/sdb1
     
-Następnie dokonujemy formatowanie:
+Następnie kasujemy wszystkie pliki:
 
     sudo dd if=/dev/zero of=/dev/sdb bs=4K && sync
 
-To może trochę potrwac. Po formatowaniu zapisujemy obraz pobranego systemu na kartę:
+To może trochę potrwać. Po tym tworzymy tabele rozdziałów:
+
+    sudo fdisk /dev/sdb
+    
+Przywita nas aplikacja fdisk. Po uruchomieniu, należy podać kilka komend używając same litery. By wywołać pomoc, wpisz  ***'m'***.
+Niżej jest pokazany przebieg poleceń:
+
+    o - utworzenie nowej, pustej DOS-owej tablicy partycji
+    n - dodanie nowej partycji
+    p - tworzenie głównej partycji
+    1 - numer partycji (1-4, default 1)
+    Enter - określamy pierwszy sektor (2048-31116287, default 2048):
+    Enter - określamy ostatni sektor, +sektorów lub +rozmiar{K,M,G,T,P} (2048-31116287, default 31116287):
+    w - zapis tablicy partycji na dysk i zakończenie
+
+Formatujemy kartę w formacie **vfat** poleceniem:
+
+     sudo mkfs.vfat /dev/sdb1
+
+Zapisujemy odraz Raspbian na kartę:
 
     sudo dd bs=4M if=20XX-XX-XX-raspbian-stretch-full.zip of=/dev/sdb0 conv=fsync
+Bezpiecznie usuwamy kartę:
 
-
+    sudo eject /dev/sdb
+Wkładamy zapisaną kartę do Raspberry PI
 
 <a name="komp"></a>
 # Komponenty i połączenie
