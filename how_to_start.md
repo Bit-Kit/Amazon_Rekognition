@@ -195,7 +195,7 @@ By Python mógł używać zasoby kamery, należy zainstalować pakiet *picamera*
     
 lub możemy dokonać pobranie za pomocą Python’s pip tool:
 
-    sudo pip install picamera
+    sudo pip3 install picamera
     
 Po installacji sprawdzimy działanie Python'a z kamerą. Twożymy plik z rozszerzeniem .py (Umaga! Nie tworzymy plików o nazwie **picamera.py**, ta nazwa jest zarezerwowana), i kopiujemy skrypt:
 
@@ -229,19 +229,16 @@ Poniżej znajduje się instrukcja instalacji bibliotek Luma:
     
 Także możemy pobrać gotowe przykłady skryptów, które pozwolą sprawdzić działalność wyświetlacza:
 
-
-instalacji w katalogu domowym pojawi się folder *codelectron_projects/Rpi/OLED* w którym znajdziemy napisane skrypty z przykładami uzycia tego wyświetlacza.
-
     git clone https://github.com/rm-hull/luma.examples.git
     cd luma.examples/
     sudo -H pip3 install -e .
     
-Pojawił się folder o nazwie *"luma.examples"* w którym się znajdują przykłady które można uruchomić:
+Pojawił się folder o nazwie *"luma.examples"*, w którym się znajdują przykłady, które można użyć do sprawdzenia wyświetlacza:
 
     cd examples/
     python3 pi_logo.py
 
-I to jest Wszystko!
+Środowisko zostało przygotowane, to jest wszystko!
 
  ---
 <a name="zrodla"></a>
