@@ -152,7 +152,7 @@ Wracamy do konsoli:
     
     AWS Access Key ID [None]: //wprowadzamy klucz
     AWS Secret Access Key [None]://wprowadzamy klucz
-    Default region name [None]: //wprowadzamy regon, typu "us-west-2"
+    Default region name [None]: //wprowadzamy regon, typu "eu-west-1"
     Default output format [None]: // wybieramy format "json"
 Wszystkie wprowadzone dane znajdują się w plikach *config* i *credentials* w katalogu domowym .aws/.
 Można sprawdzić połączenie za pomocą funkcji wyświetlania *"ls"*
@@ -168,6 +168,10 @@ Do tego obrazy Debian Python3 jest dołączony domyślnie. Można to sprawdzić 
     pi@raspberrypi:~/.aws $ python --version  //dla Python-a drugiej wersji
     pi@raspberrypi:~/.aws $ python2 --version  //dla Python-a trzeciej wersji
 
+Dodatkowo nalezy zainstalować **boto3** - to pakiet programistyczny zaprojektowany w celu poprawy wykorzystania języka programowania Python w Amazon Web Services.
+Instalacja:
+
+    pip3 install boto3
 
 <a name="camera"></a>
 # Sterowniki kamery Raspberry Pi
