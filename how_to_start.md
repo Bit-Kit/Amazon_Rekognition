@@ -22,9 +22,9 @@ Jak zacząć...
 System można pobrać z oficjalnej strony [www.raspberrypi.org](https://www.raspberrypi.org/downloads/)
 Są dwie metody instalacji systemu. Za pomącą instalatora **NOOBS** i gotowego obrazu systemu **Raspbian**.
 Z kolei Raspbian ma kilka wersji obrazu:
-* RASPBIAN STRETCH WITH DESKTOP AND RECOMMENDED SOFTWARE - obraz zawierający podstawowe pakiety oraz pulpit
-* RASPBIAN STRETCH WITH DESKTOP - obraz z pulpitem, ale bez podstawowych pakietów
-* RASPBIAN STRETCH LITE - podstawowy obraz bez pulpitu i dodatków
+* **RASPBIAN STRETCH WITH DESKTOP AND RECOMMENDED SOFTWARE** - obraz zawierający podstawowe pakiety oraz pulpit
+* **RASPBIAN STRETCH WITH DESKTOP** - obraz z pulpitem, ale bez podstawowych pakietów
+* **RASPBIAN STRETCH LITE** - podstawowy obraz bez pulpitu i dodatków
 
 Pobieramy system **"RASPBIAN STRETCH WITH DESKTOP AND RECOMMENDED SOFTWARE"**, by mięć od razu wszystkie narzędzia.
 Po pobraniu zaobserwujemy plik *20XX-XX-XX-raspbian-stretch-full.zip*
@@ -175,7 +175,7 @@ By używać kamerę Raspberry Pi trzeba ją po pierwsze podłączyć do samego u
 menu konfiguracji *raspi-config* właczyć camerę:
 
     sudo raspi-config    
-    
+Wybieramy punkt *Interfacing Options* > *Camera* > *Enable*
 Po włączeniu należy zresetować urządzenie. Po tym można sprawdzić łącznąść z kamerą poleceniem:
 
     vcgencmd get_camera
@@ -184,7 +184,7 @@ Wynik ma być taki:
 
     supported=1 detected=1
     
-Teraz możemy zrobić pierwsze zdjęcie poleceniem:
+Teraz można zrobić pierwsze zdjęcie poleceniem:
 
     raspistill -o myphoto.jpg -t 2000
 Zdjęcie domyślnie się zapisuje w katalogu domowym użytkownika.
