@@ -176,6 +176,8 @@ Po instalacji w katalogu domowym pojawi się folder *codelectron_projects/Rpi/OL
 <a name="zrodla"></a>
 ### Źródła
 
+* [Instrukcja instalacji os](https://www.raspberrypi.org/documentation/installation/installing-images/)
+* [Pobranie systemu](https://www.raspberrypi.org/downloads/)
 * [AWS Command Line Interface Getting Started](https://aws.amazon.com/cli/)
 * [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera)
 * [Installation picamera](https://picamera.readthedocs.io/en/release-1.13/install.html#raspbian-installation)
