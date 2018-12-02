@@ -4,6 +4,7 @@ Jak zacząć...
 1. [Instalacja systemu](#instrukcja)
     1. [Pobieranie](#pobieranie)
     2. [Odpakowywanie oraz zapisywanie obrazu](#unzip)
+    3. [Konfiguracja systemu](#sys)
 2. [Komponenty i połączenie](#komp)
 3. [AWS Command Line Interface](#cli)
 4. [Python3](#pliki)
@@ -101,6 +102,34 @@ Bezpiecznie usuwamy kartę:
     sudo eject /dev/sdb
 Wkładamy zapisaną kartę do Raspberry PI
 
+
+
+
+<a name="sys"></a>
+#### Konfiguracja systemu
+
+Przy pierwszym uruchomieniu pojawi się pulpit z okienkiem przywitania. Należy wybrać język, lokalizację, ustalić hasło dla użytkownika i połączyć się z siecią Wi-Fi.
+Dalej może być przeprowadzona automatyczna aktualizacja systemu.
+Po rebucie włączamy SSH poprzez konfigurator Raspbian *raspi-config*:
+    
+    pi@raspberrypi:~ $ sudo raspi-config
+    
+Dalej wybieramy punkt 5 *Interfacing Options* > *SSH* > *Enable*. Następnie należy zrestartować system poleceniem:
+
+     pi@raspberrypi:~ $ sudo reboot
+Żeby się połączyć z urządzeniem po przez SSH powinniśmy wiedzieć adres IP Raspberry:
+
+    pi@raspberrypi:~ $ ifconfig
+
+I w zależności od rodzaju połączenia (LAN lub Wi-Fi) wyświetla się adres ip pod konkretnym interfejsem:
+    
+    pi@raspberrypi:~ $ ifconfig
+    eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.69  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 fe80::cb4e:ecc5:58da:7052  prefixlen 64  scopeid 0x20<link>
+        inet6 2a01:111f:b42:d100:4bb8:2ae:2dc3:2666  prefixlen 64  scopeid 0x0<g
+W tym przypadku IP to *inet 192.168.1.69*
+Teraz można sterować mikrokomputerem za pomocą PuTTy ze stacjonarnego komputera.
 <a name="komp"></a>
 # Komponenty i połączenie
 ![](scheme.jpg "Schemat")
