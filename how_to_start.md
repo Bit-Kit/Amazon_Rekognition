@@ -55,16 +55,9 @@ Wyświetla się coś takiego:
     sdb      8:16   1  14,9G  0 disk
     └─sdb1   8:17   1  14,9G  0 part
     sr0     11:0    1  1024M  0 rom
-    loop0    7:0    0   3,8M  1 loop /snap/notepad-plus-plus/167
-    loop1    7:1    0 825,3M  1 loop /snap/play0ad/53
-    loop2    7:2    0   3,8M  1 loop /snap/notepad-plus-plus/156
-    loop3    7:3    0  88,2M  1 loop /snap/core/5897
-    loop4    7:4    0     4M  1 loop /snap/notepad-plus-plus/140
-    loop5    7:5    0 237,9M  1 loop /snap/wine-platform-i386/25
-    loop6    7:6    0  87,9M  1 loop /snap/core/5742
-    loop7    7:7    0  87,9M  1 loop /snap/core/5662
-    loop8    7:8    0 227,3M  1 loop /snap/wine-platform-i386/23
-    loop9    7:9    0  75,3M  1 loop /snap/play0ad/83
+    loop0    7:0    0   3,8M  1 loop 
+    ................................
+
 
 Znając pojemność naszej karty, możemy ją znaleść.
 W moim przypadku jest to sdb1, która ma pojemność ok 16GB. Przed formatowaniem należy od montować kartę poleceniem:
@@ -142,8 +135,31 @@ By kożystać z serwisów Amazon przedewszystkim musimy dokonać [rejestrację.]
 
 Po rejestracji można pobrać **awscli**:
 
-    instalacja pip awscli
+    sudo pip awscli
   
+Dalej przeprowadzamy konfigurację poleceniem *aws configure*
+By wygenerować klucze dostępu należy zalogować się na stronie amazon, kliknąć *My Security Credentials* > *Access keys (access key ID and secret access key)* > klikamy *Create New Access Key*
+Wyświetli się okienko do pobrania pliku .csv który zawiera identyfikator klucza dostępu i tajny klucz dostępu:
+ identyfikatora klucza dostępu i tajnego klucza dostępu
+
+        Access Key ID:XXXXXXXXXXXXXXXXX
+        Secret Access Key:XXXXXXXXXXXXXXXXXXXXXXXXXXX
+Należy te dane wprowadzić w konfiguracje aws.
+Przy okazji można utworzyć "Bucket", czyli przestrzeń chmurową dla plików, w [S3](https://s3.console.aws.amazon.com/s3) > *Create buckets* > wprowadzić unikalną nazwe "Bucket".
+Wracamy do konsoli:
+
+    pi@raspberrypi:~ $ aws configure
+    
+    AWS Access Key ID [None]: //wprowadzamy klucz
+    AWS Secret Access Key [None]://wprowadzamy klucz
+    Default region name [None]: //wprowadzamy regon, typu "us-west-2"
+    Default output format [None]: // wybieramy format "json"
+Wszystkie wprowadzone dane znajdują się w plikach *config* i *credentials* w katalogu domowym .aws/.
+Można sprawdzić połączenie za pomocą funkcji wyświetlania *"ls"*
+
+    pi@raspberrypi:~ $aws s3 ls
+W odpowiedzi dostaniemy nazwę utworzonego "Bucket" w serwisie S3.
+
 <a name="camera"></a>
 # Sterowniki kamery Raspberry Pi
 
