@@ -161,7 +161,7 @@ Można sprawdzić połączenie za pomocą funkcji wyświetlania *"ls"*
 W odpowiedzi dostaniemy nazwę utworzonego "Bucket" w serwisie S3.
 
 <a name="#python"></a>
-### Python3
+# Python3
 Do tego obrazy Debian Python3 jest dołączony domyślnie. Można to sprawdzić poleceniem:
 
     pi@raspberrypi:~/.aws $ python --version  //dla Python-a drugiej wersji
