@@ -160,7 +160,8 @@ Można sprawdzić połączenie za pomocą funkcji wyświetlania *"ls"*
     pi@raspberrypi:~ $aws s3 ls
 W odpowiedzi dostaniemy nazwę utworzonego "Bucket" w serwisie S3.
 
-<a name="#python"></a>
+
+<a name="python"></a>
 # Python3
 Do tego obrazy Debian Python3 jest dołączony domyślnie. Można to sprawdzić poleceniem:
 
@@ -215,15 +216,32 @@ Uruchomiamy poleceniem:
 <a name="SSD1306"></a>    
 # Sterowniki wyświetlacza
 W tym projekcie jaki dodatkową opcją wyprowadzenia informacji jest wyświetlacz na kontrolerze **ssd1306** z rozdzielcząścią **128X64**. Komynikacja pomiędzy Raspberry Pi i wyświetlaczem odbywa się po przez interfejs I2C.
+Interfejs I2C jest domyślnie wyłączony, wieć potrzebyjemy go włączyć:
+
+    pi@raspberrypi:~ $ sudo raspi-confi
+Wybieramy punkt *Interfacing Options* > *I2C* > *Enable*
+
 Kontroler **ssd1306** obsługuje biblioteka [**Luma**](https://luma-oled.readthedocs.io/en/latest/intro.html).
 Poniżej znajduje się instrukcja instalacji bibliotek Luma:
 
-    sudo apt-get install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential
+    sudo apt-get install python3-dev python3-pip libfreetype6-dev libjpeg-dev build-essential
     sudo -H pip install --upgrade luma.oled
     
-Po instalacji w katalogu domowym pojawi się folder *codelectron_projects/Rpi/OLED* w którym znajdziemy napisane skrypty z przykładami uzycia tego wyświetlacza.
+Także możemy pobrać gotowe przykłady skryptów, które pozwolą sprawdzić działalność wyświetlacza:
 
 
+instalacji w katalogu domowym pojawi się folder *codelectron_projects/Rpi/OLED* w którym znajdziemy napisane skrypty z przykładami uzycia tego wyświetlacza.
+
+    git clone https://github.com/rm-hull/luma.examples.git
+    cd luma.examples/
+    sudo -H pip3 install -e .
+    
+Pojawił się folder o nazwie *"luma.examples"* w którym się znajdują przykłady które można uruchomić:
+
+    cd examples/
+    python3 pi_logo.py
+
+I to jest Wszystko!
 
  ---
 <a name="zrodla"></a>
@@ -235,4 +253,5 @@ Po instalacji w katalogu domowym pojawi się folder *codelectron_projects/Rpi/OL
 * [Getting started with picamera](https://projects.raspberrypi.org/en/projects/getting-started-with-picamera)
 * [Installation picamera](https://picamera.readthedocs.io/en/release-1.13/install.html#raspbian-installation)
 * [Luma.OLED Drivers](https://luma-oled.readthedocs.io/en/latest/index.html)
+* [luma.examples](https://github.com/rm-hull/luma.examples)
 
