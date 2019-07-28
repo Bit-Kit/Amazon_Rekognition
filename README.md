@@ -1,7 +1,7 @@
 Projekty z użyciem serwisu Amazon Rekognition
 ===
 
-Ten repozytorium zawiera rozwiązania widzenia komputerowego opartych o serwisy Amazon.
+To repozytorium zawiera rozwiązania widzenia komputerowego opartych o serwisy Amazon.
 Są następne rozwiązania:
 * [Rozpoznawanie obrazu](detecting_objects/README.md)
 * [Rozpoznawanie twarzy](faces_comparing/README.md)
